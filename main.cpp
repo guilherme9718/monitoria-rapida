@@ -3,10 +3,13 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <mysqlhandler.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    MySQLHandler handler;
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
