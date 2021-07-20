@@ -36,6 +36,31 @@ set(PROJECT_SOURCES
         mainwindow.ui
         mysqlhandler.h
         mysqlhandler.cpp
+        cadastro.h
+        cadastro.cpp
+        cadastro.ui
+        registrar.h
+        registrar.cpp
+        registrar.ui
+        registroaluno.h
+        registroaluno.cpp
+        registroaluno.ui
+        registromonitor.h
+        registromonitor.cpp
+        registromonitor.ui
+        senha.h
+        senha.cpp
+        senha.ui
+        aluno.h
+        aluno.cpp
+        monitor.h
+        monitor.cpp
+        horario.h
+        horario.cpp
+        agendamento.h
+        agendamento.cpp
+        disciplina.h
+        disciplina.cpp
         ${TS_FILES}
 )
 
