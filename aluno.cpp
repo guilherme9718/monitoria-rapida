@@ -4,3 +4,7 @@ Aluno::Aluno()
 {
 
 }
+
+Aluno::~Aluno() {
+
+}

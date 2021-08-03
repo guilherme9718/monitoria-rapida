@@ -25,6 +25,7 @@ private slots:
 
 private:
     Ui::Cadastro *ui;
+
 };
 
 #endif // CADASTRO_H

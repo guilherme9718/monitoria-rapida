@@ -61,6 +61,10 @@ set(PROJECT_SOURCES
         agendamento.cpp
         disciplina.h
         disciplina.cpp
+        vetorentidade.h
+        vetorentidade.cpp
+        entidade.h
+        entidade.cpp
         ${TS_FILES}
 )
 

@@ -2,14 +2,14 @@
 #define ALUNO_H
 
 #include <QString>
+#include "entidade.h"
 
-class Aluno
+class Aluno : public Entidade
 {
 public:
     Aluno();
     ~Aluno();
 
-private:
     int ra;
     QString nome;
     QString senha;

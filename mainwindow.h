@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QMessageBox>
+#include "mysqlhandler.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,6 +26,7 @@ private:
     static MainWindow* instancia;
     QString ra;
     Ui::MainWindow *ui;
+    BancoDeDados::MySQLHandler* handler;
     bool ra_cadastrado(QString r);
 };
 #endif // MAINWINDOW_H

@@ -8,6 +8,7 @@ Cadastro::Cadastro(QWidget *parent) :
     ui(new Ui::Cadastro)
 {
     ui->setupUi(this);
+
 }
 
 Cadastro::~Cadastro()

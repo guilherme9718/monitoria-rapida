@@ -2,6 +2,7 @@
 #define REGISTROALUNO_H
 
 #include <QDialog>
+#include "mysqlhandler.h"
 
 namespace Ui {
 class RegistroAluno;

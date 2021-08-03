@@ -4,3 +4,7 @@ Monitor::Monitor()
 {
 
 }
+
+Monitor::~Monitor() {
+
+}
