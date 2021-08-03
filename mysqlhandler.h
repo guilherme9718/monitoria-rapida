@@ -7,11 +7,13 @@
 #include <QSqlRelationalTableModel>
 #include <QSqlRecord>
 #include <iostream>
+#include <ctime>
 
 #include "aluno.h"
 #include "monitor.h"
 #include "horario.h"
 #include "agendamento.h"
+#include "disciplina.h"
 
 /* class Monitor;
 class Aluno;
@@ -28,7 +30,13 @@ const auto INSERT_MONITOR_SQL = QLatin1String(R"(
     INSERT INTO Monitor(ra, nome, senha, email, disciplinaID) values(?, ?, ?, ?, ?)
     )");
 const auto INSERT_HORARIO_SQL = QLatin1String(R"(
-    INSERT INTO Horario(monitorID, senha, email, disciplinaID) values(?, ?, ?, ?, ?)
+    INSERT INTO Horario(monitorID, diaSemana, inicio, fim) values(?, ?, ?, ?)
+    )");
+const auto INSERT_AGENDAMENTO_SQL = QLatin1String(R"(
+    INSERT INTO Agendamento(alunoID, HorarioID) values(?, ?)
+    )");
+const auto INSERT_DISCIPLINA_SQL = QLatin1String(R"(
+    INSERT INTO Disciplina(codigo, nome, departamento) values(?, ?, ?)
     )");
 
     class MySQLHandler
@@ -48,16 +56,20 @@ const auto INSERT_HORARIO_SQL = QLatin1String(R"(
         ~MySQLHandler();
 
         static MySQLHandler* getInstance();
-        QVariant adicionar(Monitor monitor);
-        QVariant adicionar(Aluno aluno);
-        QVariant adicionar(Horario horario);
-        QVariant adicionar(Agendamento agenda);
+        QVariant adicionar(Monitor &monitor);
+        QVariant adicionar(Aluno &aluno);
+        QVariant adicionar(Horario &horario);
+        QVariant adicionar(Agendamento &agenda);
         //QVariant adicionar(Orientador orientador);
+        QVariant adicionar(Disciplina &disc);
 
         QVariant adicionarAluno(QString RA, QString nome, QString senha);
         //QVariant adicionarMonitor(Monitor monitor);
 
         QVector<Aluno*> coletarAluno(QString filter="");
+        QVector<Monitor*> coletarMonitor(QString filter="");
+        QVector<Disciplina*> coletarDisciplina(QString filter="");
+        QVector<Agendamento*> coletarAgendamento(QString filter="");
 
         void ShowError(QSqlError error);
 

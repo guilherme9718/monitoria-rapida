@@ -11,7 +11,6 @@ public:
 
     ~Disciplina();
 
-private:
     int disciplinaID;
     QString codigo;
     QString nome;

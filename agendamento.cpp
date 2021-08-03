@@ -1,6 +1,10 @@
 #include "agendamento.h"
 
-Agendamento::Agendamento()
-{
+Agendamento::Agendamento() {
+    aluno = nullptr;
+    horario = nullptr;
+}
+
+Agendamento::~Agendamento() {
 
 }

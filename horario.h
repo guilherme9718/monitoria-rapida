@@ -3,12 +3,14 @@
 
 #include <ctime>
 
+#include "monitor.h"
+
 class Horario
 {
 public:
     Horario();
     ~Horario();
-private:
+
     /*
     1 = segunda
     2 = terça
@@ -19,10 +21,10 @@ private:
     64 = domingo
     */
     char diaSemana;
-    int monitorID;
+    Monitor* monitor;
     int horarioID;
-    time_t inicio;
-    time_t fim;
+    tm inicio;
+    tm fim;
 };
 
 #endif // HORARIO_H

@@ -61,6 +61,103 @@ void BancoDeDados::MySQLHandler::ShowError(QSqlError error) {
     std::cout << qPrintable(error.text()) << std::endl;
 }
 
+QVariant BancoDeDados::MySQLHandler::adicionar(Monitor &monitor) {
+    db.open();
+
+    if (!query.prepare(BancoDeDados::INSERT_MONITOR_SQL)) {
+        ShowError(query.lastError());
+        return QVariant(-99);
+    }
+
+    if(!monitor.disciplina)
+        return -99;
+
+    query.addBindValue(monitor.ra);
+    query.addBindValue(monitor.nome);
+    query.addBindValue(monitor.senha);
+    query.addBindValue(monitor.email);
+    query.addBindValue(monitor.disciplina->disciplinaID);
+    query.exec();
+
+    db.close();
+    std::cout << "Sucesso ao inserir monitor";
+    return query.lastInsertId();
+}
+QVariant BancoDeDados::MySQLHandler::adicionar(Aluno &aluno) {
+    db.open();
+
+    if (!query.prepare(BancoDeDados::INSERT_ALUNO_SQL)) {
+        ShowError(query.lastError());
+        return QVariant(-99);
+    }
+
+    query.addBindValue(aluno.ra);
+    query.addBindValue(aluno.nome);
+    query.addBindValue(aluno.senha);
+    query.exec();
+
+    db.close();
+    std::cout << "Sucesso ao inserir aluno";
+    return query.lastInsertId();
+}
+QVariant BancoDeDados::MySQLHandler::adicionar(Horario &horario) {
+    db.open();
+
+    if (!query.prepare(BancoDeDados::INSERT_HORARIO_SQL)) {
+        ShowError(query.lastError());
+        return QVariant(-99);
+    }
+
+    if(!horario.monitor)
+        return -99;
+
+    query.addBindValue(horario.monitor->id);
+    query.addBindValue(horario.diaSemana);
+    query.addBindValue(horario.inicio.tm_hour);
+    query.addBindValue(horario.fim.tm_hour);
+    query.exec();
+
+    db.close();
+    std::cout << "Sucesso ao inserir horario";
+    return query.lastInsertId();
+}
+QVariant BancoDeDados::MySQLHandler::adicionar(Agendamento &agenda) {
+    db.open();
+
+    if (!query.prepare(BancoDeDados::INSERT_AGENDAMENTO_SQL)) {
+        ShowError(query.lastError());
+        return QVariant(-99);
+    }
+
+    if(!agenda.aluno)
+        return -99;
+    query.addBindValue(agenda.aluno->ra);
+    query.addBindValue(agenda.horario->horarioID);
+    query.exec();
+
+    db.close();
+    std::cout << "Sucesso ao inserir agendamento";
+    return query.lastInsertId();
+}
+
+QVariant BancoDeDados::MySQLHandler::adicionar(Disciplina &disc) {
+    db.open();
+
+    if (!query.prepare(BancoDeDados::INSERT_DISCIPLINA_SQL)) {
+        ShowError(query.lastError());
+        return QVariant(-99);
+    }
+
+    query.addBindValue(disc.codigo);
+    query.addBindValue(disc.nome);
+    query.addBindValue(disc.departamento);
+    query.exec();
+
+    db.close();
+    std::cout << "Sucesso ao inserir disciplina";
+    return query.lastInsertId();
+}
+
 QVector<Aluno*> BancoDeDados::MySQLHandler::coletarAluno(QString filter) {
     db.open();
     std::unique_ptr<QSqlRelationalTableModel> table{new QSqlRelationalTableModel(nullptr, db)};
@@ -86,15 +183,36 @@ QVector<Aluno*> BancoDeDados::MySQLHandler::coletarAluno(QString filter) {
 
     return alunos;
 }
-QVariant BancoDeDados::MySQLHandler::adicionar(Monitor monitor) {
+QVector<Monitor*> BancoDeDados::MySQLHandler::coletarMonitor(QString filter) {
+    db.open();
+    std::unique_ptr<QSqlRelationalTableModel> table_monitor{new QSqlRelationalTableModel(nullptr, db)};
+
+    table_monitor->setTable("Monitor");
+    table_monitor->setFilter(filter);
+    table_monitor->setSort(3, Qt::SortOrder::AscendingOrder);
+    table_monitor->select();
+
+    int rowCount = table_monitor->rowCount();
+
+    QVector<Monitor*> monitores;
+    monitores.reserve(rowCount);
+    for(int i=0; i < rowCount; i++) {
+        Monitor* monitor = new Monitor;
+        monitor->ra = table_monitor->record(i).value("ra").toInt();
+        monitor->nome = table_monitor->record(i).value("nome").toString();
+        monitor->senha = table_monitor->record(i).value("senha").toString();
+        monitor->monitorID = table_monitor->record(i).value("monitorID").toInt();
+        monitor->email = table_monitor->record(i).value("email").toString();
+        monitores.append(monitor);
+    }
+
+    db.close();
+
+    return monitores;
+}
+QVector<Disciplina*> BancoDeDados::MySQLHandler::coletarDisciplina(QString filter) {
 
 }
-QVariant BancoDeDados::MySQLHandler::adicionar(Aluno aluno) {
-
-}
-QVariant BancoDeDados::MySQLHandler::adicionar(Horario horario) {
-
-}
-QVariant BancoDeDados::MySQLHandler::adicionar(Agendamento agenda) {
+QVector<Agendamento*> BancoDeDados::MySQLHandler::coletarAgendamento(QString filter) {
 
 }

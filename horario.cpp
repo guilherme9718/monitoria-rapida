@@ -1,6 +1,10 @@
 #include "horario.h"
 
-Horario::Horario()
-{
+Horario::Horario() {
+    monitor = nullptr;
+
+}
+
+Horario::~Horario() {
 
 }
