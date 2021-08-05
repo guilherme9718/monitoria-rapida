@@ -1,7 +1,7 @@
 #include "cadastro.h"
 #include "ui_cadastro.h"
 #include "registroaluno.h"
-#include "registromonitor.h"
+#include "registrarmonitor.h"
 
 Cadastro::Cadastro(QWidget *parent) :
     QDialog(parent),
@@ -28,8 +28,8 @@ void Cadastro::on_aluno_clicked()
 
 void Cadastro::on_monitor_clicked()
 {
-    close();
-    RegistroMonitor* monitor = new RegistroMonitor(this);
-    monitor->show();
+    hide();
+    RegistrarMonitor* rm = new RegistrarMonitor();
+    rm->show();
 }
 

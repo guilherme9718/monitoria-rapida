@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(170, 188, 255);</string>
+  </property>
   <widget class="QLineEdit" name="senha">
    <property name="geometry">
     <rect>
@@ -21,6 +24,9 @@
      <width>113</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="ra">
@@ -32,6 +38,9 @@
      <height>24</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="nome">
    <property name="geometry">
@@ -41,6 +50,9 @@
      <width>113</width>
      <height>24</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -57,14 +69,17 @@
      <pointsize>10</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0)</string>
+   </property>
    <property name="text">
-    <string>Nome:</string>
+    <string>Nome</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>80</x>
      <y>140</y>
      <width>31</width>
      <height>16</height>
@@ -75,8 +90,11 @@
      <pointsize>10</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0)</string>
+   </property>
    <property name="text">
-    <string>RA:</string>
+    <string>RA</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -93,16 +111,19 @@
      <pointsize>10</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0)</string>
+   </property>
    <property name="text">
-    <string>Senha:</string>
+    <string>Senha</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>160</x>
      <y>40</y>
-     <width>221</width>
+     <width>71</width>
      <height>16</height>
     </rect>
    </property>
@@ -111,18 +132,24 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(0, 0, 0)</string>
+   </property>
    <property name="text">
-    <string>CADASTRO DO ALUNO</string>
+    <string>ALUNO</string>
    </property>
   </widget>
   <widget class="QPushButton" name="cadastrar">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>240</y>
      <width>80</width>
      <height>25</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0,0,0)</string>
    </property>
    <property name="text">
     <string>Cadastrar</string>
