@@ -8,6 +8,7 @@
 #include <QSqlRecord>
 #include <iostream>
 #include <ctime>
+#include <QTime>
 
 #include "aluno.h"
 #include "monitor.h"
@@ -70,6 +71,7 @@ const auto INSERT_DISCIPLINA_SQL = QLatin1String(R"(
         QVector<Monitor*> coletarMonitor(QString filter="");
         QVector<Disciplina*> coletarDisciplina(QString filter="");
         QVector<Agendamento*> coletarAgendamento(QString filter="");
+        QVector<Horario*> coletarHorario(QString filter="");
 
         void ShowError(QSqlError error);
 

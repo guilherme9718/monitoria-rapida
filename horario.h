@@ -2,10 +2,12 @@
 #define HORARIO_H
 
 #include <ctime>
+#include <QTime>
 
 #include "monitor.h"
+#include "entidade.h"
 
-class Horario
+class Horario : public Entidade
 {
 public:
     Horario();
@@ -23,8 +25,8 @@ public:
     char diaSemana;
     Monitor* monitor;
     int horarioID;
-    tm inicio;
-    tm fim;
+    QTime inicio;
+    QTime fim;
 };
 
 #endif // HORARIO_H
