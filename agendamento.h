@@ -12,8 +12,6 @@ public:
 
     Aluno* aluno;
     Horario* horario;
-    int alunoID;
-    int horarioID;
 };
 
 #endif // AGENDAMENTO_H

@@ -1,13 +1,16 @@
 #include "cadastro.h"
 #include "ui_cadastro.h"
 #include "registroaluno.h"
-#include "registromonitor.h"
+#include "registrarmonitor.h"
 
 Cadastro::Cadastro(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Cadastro)
 {
     ui->setupUi(this);
+    Cadastro::setWindowTitle("Cadastro");
+    setWindowIcon(QIcon(":/icones/mricon.png"));
+    this->show();
 
 }
 
@@ -20,8 +23,7 @@ Cadastro::~Cadastro()
 void Cadastro::on_aluno_clicked()
 {
     close();
-    RegistroAluno* aluno = new RegistroAluno(this);
-    aluno->show();
+    new RegistroAluno();
 }
 
 
@@ -29,7 +31,6 @@ void Cadastro::on_aluno_clicked()
 void Cadastro::on_monitor_clicked()
 {
     close();
-    RegistroMonitor* monitor = new RegistroMonitor(this);
-    monitor->show();
+    new RegistrarMonitor();
 }
 

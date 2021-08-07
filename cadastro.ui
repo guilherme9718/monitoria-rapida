@@ -6,21 +6,43 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>378</width>
+    <width>302</width>
     <height>236</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>302</width>
+    <height>236</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>302</width>
+    <height>236</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 218, 8, 255), stop:0.55 rgba(255, 205, 3, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));
+}
+</string>
+  </property>
   <widget class="QPushButton" name="monitor">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>130</y>
+     <x>110</x>
+     <y>100</y>
      <width>80</width>
      <height>25</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Monitor</string>
@@ -29,11 +51,15 @@
   <widget class="QPushButton" name="aluno">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>130</y>
+     <x>110</x>
+     <y>160</y>
      <width>80</width>
      <height>25</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>Aluno</string>
@@ -42,37 +68,24 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>70</y>
-     <width>151</width>
+     <x>70</x>
+     <y>20</y>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(0, 0, 0)</string>
    </property>
    <property name="text">
     <string>Cadastrar como</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>10</y>
-     <width>281</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Você ainda não possui uma conta.</string>
    </property>
   </widget>
  </widget>

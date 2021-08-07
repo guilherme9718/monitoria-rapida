@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Senha</class>
- <widget class="QDialog" name="Senha">
+ <class>InterfaceOrientador</class>
+ <widget class="QDialog" name="InterfaceOrientador">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>312</width>
+    <width>400</width>
     <height>300</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>312</width>
+    <width>400</width>
     <height>300</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>312</width>
+    <width>400</width>
     <height>300</height>
    </size>
   </property>
@@ -31,47 +31,13 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
 }
 </string>
   </property>
-  <widget class="QPushButton" name="voltar">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>210</y>
-     <width>80</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color:rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string>Voltar</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="login">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>210</y>
-     <width>80</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color:rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-   </property>
-   <property name="text">
-    <string>Login</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>90</y>
-     <width>55</width>
-     <height>16</height>
+     <y>100</y>
+     <width>241</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -85,25 +51,64 @@ background-color: rgb(255, 255, 255);</string>
     <string notr="true">color:rgb(0, 0, 0)</string>
    </property>
    <property name="text">
-    <string>Senha</string>
+    <string>Alunos a serem aprovados</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QPushButton" name="pendencias">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>160</x>
      <y>140</y>
-     <width>113</width>
-     <height>24</height>
+     <width>80</width>
+     <height>25</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-background-color: rgb(255, 255, 255);
-</string>
+    <string notr="true">color:rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
    </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
+   <property name="text">
+    <string>Pendências</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>20</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(0, 0, 0)</string>
+   </property>
+   <property name="text">
+    <string>ORIENTADOR</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="voltar">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>240</y>
+     <width>80</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Voltar</string>
    </property>
   </widget>
  </widget>

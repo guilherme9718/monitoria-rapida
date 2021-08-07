@@ -7,6 +7,9 @@ RegistroAluno::RegistroAluno(QWidget *parent) :
     ui(new Ui::RegistroAluno)
 {
     ui->setupUi(this);
+    RegistroAluno::setWindowTitle("Aluno");
+    setWindowIcon(QIcon(":/icones/mricon.png"));
+    this->show();
 }
 
 RegistroAluno::~RegistroAluno()
@@ -25,7 +28,7 @@ void RegistroAluno::on_cadastrar_clicked()
     handler->adicionarAluno(new_ra, new_nome, new_senha);
 
     close();
-    Senha* senha = new Senha(this);
-    senha->show();
+    new Senha();
+
 }
 

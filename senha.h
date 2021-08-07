@@ -15,6 +15,11 @@ public:
     explicit Senha(QWidget *parent = nullptr);
     ~Senha();
 
+private slots:
+    void on_login_clicked();
+
+    void on_voltar_clicked();
+
 private:
     Ui::Senha *ui;
 };

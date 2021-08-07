@@ -113,8 +113,8 @@ QVariant BancoDeDados::MySQLHandler::adicionar(Horario &horario) {
 
     query.addBindValue(horario.monitor->id);
     query.addBindValue(horario.diaSemana);
-    query.addBindValue(horario.inicio.toString());
-    query.addBindValue(horario.fim.toString());
+    query.addBindValue(horario.inicio.tm_hour);
+    query.addBindValue(horario.fim.tm_hour);
     query.exec();
 
     db.close();
@@ -194,11 +194,8 @@ QVector<Monitor*> BancoDeDados::MySQLHandler::coletarMonitor(QString filter) {
 
     int rowCount = table_monitor->rowCount();
 
-    QVector<Horario*> horarios = coletarHorario();
-
     QVector<Monitor*> monitores;
     monitores.reserve(rowCount);
-    int init = 0, j=0;
     for(int i=0; i < rowCount; i++) {
         Monitor* monitor = new Monitor;
         monitor->ra = table_monitor->record(i).value("ra").toInt();
@@ -206,17 +203,6 @@ QVector<Monitor*> BancoDeDados::MySQLHandler::coletarMonitor(QString filter) {
         monitor->senha = table_monitor->record(i).value("senha").toString();
         monitor->monitorID = table_monitor->record(i).value("monitorID").toInt();
         monitor->email = table_monitor->record(i).value("email").toString();
-
-        for(j = init; j < horarios.size(); j++) {
-            if(monitor->monitorID == horarios[j]->id) {
-                monitor->adiciona_horario(horarios[j]);
-            }
-            else if(monitor->monitorID > horarios[j]->id) {
-                init = j;
-                break;
-            }
-        }
-
         monitores.append(monitor);
     }
 
@@ -225,80 +211,8 @@ QVector<Monitor*> BancoDeDados::MySQLHandler::coletarMonitor(QString filter) {
     return monitores;
 }
 QVector<Disciplina*> BancoDeDados::MySQLHandler::coletarDisciplina(QString filter) {
-    db.open();
-    std::unique_ptr<QSqlRelationalTableModel> table{new QSqlRelationalTableModel(nullptr, db)};
 
-    table->setTable("Disciplina");
-    table->setFilter(filter);
-    table->setSort(0, Qt::SortOrder::AscendingOrder);
-    table->select();
-
-    int rowCount = table->rowCount();
-
-    QVector<Disciplina*> disciplinas;
-    disciplinas.reserve(rowCount);
-    for(int i=0; i < rowCount; i++) {
-        Disciplina* disc = new Disciplina;
-        disc->disciplinaID = table->record(i).value("disciplinaID").toInt();
-        disc->codigo = table->record(i).value("codigo").toString();
-        disc->nome = table->record(i).value("nome").toString();
-        disc->departamento = table->record(i).value("departamento").toString();
-        disciplinas.append(disc);
-    }
-
-    db.close();
-
-    return disciplinas;
 }
 QVector<Agendamento*> BancoDeDados::MySQLHandler::coletarAgendamento(QString filter) {
-    db.open();
-    std::unique_ptr<QSqlRelationalTableModel> table{new QSqlRelationalTableModel(nullptr, db)};
 
-    table->setTable("Agendamento");
-    table->setFilter(filter);
-    table->setSort(0, Qt::SortOrder::AscendingOrder);
-    table->select();
-
-    int rowCount = table->rowCount();
-
-    QVector<Agendamento*> agendas;
-    agendas.reserve(rowCount);
-    for(int i=0; i < rowCount; i++) {
-        Agendamento* agenda = new Agendamento;
-        agenda->alunoID = table->record(i).value("alunoID").toInt();
-        agenda->horarioID = table->record(i).value("horarioID").toInt();
-        agendas.append(agenda);
-    }
-
-    db.close();
-
-    return agendas;
-}
-
-QVector<Horario*> BancoDeDados::MySQLHandler::coletarHorario(QString filter) {
-    db.open();
-    std::unique_ptr<QSqlRelationalTableModel> table{new QSqlRelationalTableModel(nullptr, db)};
-
-    table->setTable("Horario");
-    table->setFilter(filter);
-    table->setSort(0, Qt::SortOrder::AscendingOrder);
-    table->select();
-
-    int rowCount = table->rowCount();
-
-    QVector<Horario*> horarios;
-    horarios.reserve(rowCount);
-    for(int i=0; i < rowCount; i++) {
-        Horario* hora = new Horario;
-        hora->horarioID = table->record(i).value("horarioID").toInt();
-        hora->id = table->record(i).value("monitorID").toInt();
-        hora->diaSemana = table->record(i).value("diaSemana").toInt();
-        hora->inicio = table->record(i).value("inicio").toTime();
-        hora->fim = table->record(i).value("fim").toTime();
-        horarios.append(hora);
-    }
-
-    db.close();
-
-    return horarios;
 }
