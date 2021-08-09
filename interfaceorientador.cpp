@@ -2,6 +2,7 @@
 #include "ui_interfaceorientador.h"
 #include "login.h"
 #include "orientadorpendencias.h"
+#include "orientadorpresencas.h"
 InterfaceOrientador::InterfaceOrientador(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::InterfaceOrientador)
@@ -28,5 +29,12 @@ void InterfaceOrientador::on_pendencias_clicked()
 {
     close();
     new OrientadorPendencias(this);
+}
+
+
+void InterfaceOrientador::on_tabela_clicked()
+{
+    close();
+    new OrientadorPresencas();
 }
 

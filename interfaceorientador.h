@@ -20,6 +20,8 @@ private slots:
 
     void on_pendencias_clicked();
 
+    void on_tabela_clicked();
+
 private:
     Ui::InterfaceOrientador *ui;
 };

@@ -27,8 +27,7 @@ void Interfacemonitor::on_pendencias_clicked()
 
 void Interfacemonitor::on_tabela_clicked()
 {
-    close();
-    new MonitorPresencas();
+
 }
 
 
